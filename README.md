@@ -1,8 +1,11 @@
-[![Greenkeeper badge](https://badges.greenkeeper.io/BjornMelgaard/ramda-asserters.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/BjornMelgaard/ramda-asserters.svg?branch=master)](https://travis-ci.org/BjornMelgaard/ramda-asserters)
+[![Greenkeeper badge](https://badges.greenkeeper.io/BjornMelgaard/ramda-universal-trace.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/BjornMelgaard/ramda-universal-trace.svg?branch=master)](https://travis-ci.org/BjornMelgaard/ramda-universal-trace)
 
-# ramda-asserters
+# ramda-universal-trace
 Trace function that works fine both in browser and node
+
+**Signature**: String -> a -> a
+
 In browser it will use
 ```ts
 console.log(message, subject)
@@ -14,14 +17,9 @@ const options = { showHidden: true, depth: 40 }
 console.log(message, util.inspect(subj, options))
 ```
 
+Original idea was drawn from [this gist](https://gist.github.com/jaysoo/7b1298bcc98ef9ac71e6dd0383a07dc3)
+
 ## Usage
-
-Prints message with subject to console and returns subject
-
-Signature: String -> a -> a
-Original idea was drawn from https://gist.github.com/jaysoo/7b1298bcc98ef9ac71e6dd0383a07dc3
-
-Usage example:
 
 ```ts
 import * as R from 'ramda'
@@ -35,7 +33,7 @@ const performComplexCalc = R.compose(
     R.multiply(10),
     R.add(10),
     trace('before')
-    )
+)
 ```
 
 ## Installation

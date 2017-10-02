@@ -1,6 +1,6 @@
 {
   "name": "ramda-universal-trace",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Trace function that works fine both in browser and node",
   "author": "BjornMelgaard",
   "license": "MIT",
