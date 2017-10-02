@@ -1,0 +1,64 @@
+{
+  "name": "ramda-universal-trace",
+  "version": "0.0.1",
+  "description": "Trace function that works fine both in browser and node",
+  "author": "BjornMelgaard",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BjornMelgaard/ramda-universal-trace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BjornMelgaard/ramda-universal-trace/issues"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "browser": "./es/index.js",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "jsnext:main": "./es/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "prebuild": "rm -rfd es lib",
+    "build": "gulp",
+    "lint": "tslint --type-check -c tslint.json -p tsconfig.json '{src,test}/**/*.ts'",
+    "lint:fix": "yarn run lint --fix",
+    "format": "prettier --config './.prettierrc.yaml' --ignore-path './.prettierignore' --write './src/*.{js,jsx,ts,tsx,graphql,gql,json}'",
+    "test": "jest",
+    "prepublishOnly": "yarn run build",
+    "precommit": "yarn run format",
+    "fix-yarn-install": "yarn add ramda -P"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "keywords": [
+    "ramda",
+    "validation",
+    "asserters"
+  ],
+  "peerDependencies": {
+    "ramda": "^0.24.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.0",
+    "@types/node": "^8.0.31",
+    "@types/ramda": "^0.24.9",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-typescript": "^3.2.2",
+    "husky": "^0.14.3",
+    "jest": "^21.1.0",
+    "lint-staged": "^4.2.3",
+    "merge2": "^1.2.0",
+    "prettier": "^1.7.3",
+    "ts-jest": "^21.0.1",
+    "tslint": "^5.7.0",
+    "tslint-config-prettier": "^1.5.0",
+    "tslint-config-standard": "^6.0.1",
+    "tslint-consistent-codestyle": "^1.6.0",
+    "typescript": "^2.5.2"
+  }
+}
