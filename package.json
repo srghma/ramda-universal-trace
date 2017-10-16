@@ -1,6 +1,6 @@
 {
   "name": "ramda-universal-trace",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Trace function that works fine both in browser and node",
   "author": "BjornMelgaard",
   "license": "MIT",
@@ -40,12 +40,12 @@
     "asserters"
   ],
   "peerDependencies": {
-    "ramda": "^0.24.1"
+    "ramda": "^0.25.0"
   },
   "devDependencies": {
     "@types/jest": "^21.1.0",
     "@types/node": "^8.0.31",
-    "@types/ramda": "^0.24.9",
+    "@types/ramda": "https://github.com/types/npm-ramda#dist",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-typescript": "^3.2.2",

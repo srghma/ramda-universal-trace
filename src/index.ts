@@ -9,7 +9,7 @@ let logger: any = null
 if (isNode) {
   // eslint-disable-next-line global-require
   const util = require('util')
-  const options = { showHidden: true, depth: 40 }
+  const options = { showHidden: true, depth: 40, colors: true }
   logger = (message: string, subj: any) => {
     // eslint-disable-next-line no-console
     console.log(message, util.inspect(subj, options))

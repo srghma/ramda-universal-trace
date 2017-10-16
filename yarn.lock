@@ -27,9 +27,9 @@
   version "8.0.31"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.31.tgz#d9af61093cf4bfc9f066ca34de0175012cfb0ce9"
 
-"@types/ramda@^0.24.9":
-  version "0.24.14"
-  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.24.14.tgz#bdd312c461934bc09a79745d77b6952302bf6b02"
+"@types/ramda@https://github.com/types/npm-ramda#dist":
+  version "0.24.3"
+  resolved "https://github.com/types/npm-ramda#75d9e8dd6700138b8c4305a147a93044678a497d"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -2968,9 +2968,9 @@ qs@~6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
-ramda@^0.24.1:
-  version "0.24.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
+ramda@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
 
 randomatic@^1.1.3:
   version "1.1.7"
