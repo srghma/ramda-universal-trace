@@ -51,7 +51,7 @@
     "gulp-typescript": "^3.2.2",
     "husky": "^0.14.3",
     "jest": "^21.1.0",
-    "lint-staged": "^4.2.3",
+    "lint-staged": "^5.0.0",
     "merge2": "^1.2.0",
     "prettier": "^1.7.3",
     "ts-jest": "^21.0.1",
