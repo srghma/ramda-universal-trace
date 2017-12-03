@@ -1,5 +1,3 @@
-import { curryN } from 'ramda'
-
 // https://stackoverflow.com/a/24279593/3574379
 const isNode =
   (typeof process as any) === 'object' &&
@@ -10,9 +8,9 @@ if (isNode) {
   // eslint-disable-next-line global-require
   const util = require('util')
   const options = { showHidden: true, depth: 40, colors: true }
-  logger = (message: string, subj: any) => {
+  logger = (message: string, x: any) => {
     // eslint-disable-next-line no-console
-    console.log(message, util.inspect(subj, options))
+    console.log(message, util.inspect(x, options))
   }
 } else {
   // eslint-disable-next-line no-console
@@ -23,13 +21,24 @@ export interface TraceFn {
   /**
    * Prints message with subject to console and returns subject
    */
-  <T>(message: string, subj: T): T
-  (message: string): <T>(subj: T) => T
+  <T>(message: string, modFn: any, x: T): T
+  (message: string, modFn?: any): <T>(x: T) => T
 }
 
-const trace: TraceFn = curryN(2, (message: string, subject: any) => {
-  logger(message, subject)
-  return subject
-})
+const trace: TraceFn = (...args: any[]) => {
+  if (args.length === 3) {
+    const [message, modFn, x] = args
+    logger(message, modFn(x))
+    return x
+  } else {
+    return (x: any) => {
+      const [message, modFn] = args
+      const modx = modFn ? modFn(x) : x
+
+      logger(message, modx)
+      return x
+    }
+  }
+}
 
 export default trace

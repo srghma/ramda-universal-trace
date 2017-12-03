@@ -1,11 +1,17 @@
 import trace from '../src'
 
 describe('trace', () => {
-  const subj = 1;
   const message = 'message';
 
-  it('tests logging (see output)', () => {
-    trace(message, subj);
-    trace(message)(subj);
-  });
+  it('test without modFn', () => {
+    const tracer = trace(message)
+
+    expect(tracer(1)).toBe(1)
+  })
+
+  it('test without modFn', () => {
+    const tracer = trace(message, (x: any) => x + 1)
+
+    expect(tracer(1)).toBe(1)
+  })
 });

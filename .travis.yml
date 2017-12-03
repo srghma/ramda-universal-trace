@@ -9,7 +9,6 @@ before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
 
 script:
-  - yarn run fix-yarn-install
   - yarn run lint
   - yarn run test
 

@@ -1,6 +1,6 @@
 {
   "name": "ramda-universal-trace",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Trace function that works fine both in browser and node",
   "author": "BjornMelgaard",
   "license": "MIT",
@@ -28,8 +28,7 @@
     "format": "prettier --config './.prettierrc.yaml' --ignore-path './.prettierignore' --write './src/*.{js,jsx,ts,tsx,graphql,gql,json}'",
     "test": "jest",
     "prepublishOnly": "yarn run build",
-    "precommit": "yarn run format",
-    "fix-yarn-install": "yarn add ramda -P"
+    "precommit": "yarn run format"
   },
   "engines": {
     "node": ">=4"
@@ -39,13 +38,9 @@
     "validation",
     "asserters"
   ],
-  "peerDependencies": {
-    "ramda": "^0.25.0"
-  },
   "devDependencies": {
     "@types/jest": "^21.1.0",
     "@types/node": "^8.0.31",
-    "@types/ramda": "https://github.com/types/npm-ramda#dist",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-typescript": "^3.2.2",
