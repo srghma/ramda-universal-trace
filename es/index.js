@@ -2,9 +2,11 @@
 import _identity from 'ramda/src/identity';
 import _curryN from 'ramda/src/curryN';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 // https://stackoverflow.com/a/24279593/3574379
 function isNode() {
-  return (typeof process === 'undefined' ? 'undefined' : babelHelpers.typeof(process)) === 'object' && Object.prototype.toString.call(process) === '[object process]';
+  return (typeof process === 'undefined' ? 'undefined' : _typeof(process)) === 'object' && Object.prototype.toString.call(process) === '[object process]';
 }
 
 function makeInspect(options) {

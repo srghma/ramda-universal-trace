@@ -22,7 +22,8 @@ const config = {
   plugins:  [
     babel({
       babelrc:         false,
-      externalHelpers: true,
+      // runtimeHelpers: true,
+      // externalHelpers: true,
       exclude:         'node_modules/**',
       presets:         [
         [
@@ -33,7 +34,8 @@ const config = {
         ],
       ],
       plugins: [
-        'external-helpers',
+        // 'external-helpers',
+        // 'transform-runtime',
         [
           'lodash',
           {
