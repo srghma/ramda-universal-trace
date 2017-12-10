@@ -2,7 +2,7 @@
   "name": "ramda-universal-trace",
   "version": "0.0.4",
   "description": "Trace function that works fine both in browser and node",
-  "author": "BjornMelgaard",
+  "author": "Sergey Homa <melgaardbjorn@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,49 +11,60 @@
   "bugs": {
     "url": "https://github.com/BjornMelgaard/ramda-universal-trace/issues"
   },
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "browser": "./es/index.js",
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
-  "jsnext:main": "./es/index.js",
-  "types": "./lib/index.d.ts",
+  "files": ["es", "src", "umd"],
+  "main": "cjs/index.js",
+  "browser": "es/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
   "scripts": {
-    "prebuild": "rm -rfd es lib",
-    "build": "gulp",
-    "lint": "tslint --type-check -c tslint.json -p tsconfig.json '{src,test}/**/*.ts'",
-    "lint:fix": "yarn run lint --fix",
-    "format": "prettier --config './.prettierrc.yaml' --ignore-path './.prettierignore' --write './src/*.{js,jsx,ts,tsx,graphql,gql,json}'",
-    "test": "jest",
-    "prepublishOnly": "yarn run build",
-    "precommit": "yarn run format"
+    "prebuild": "yarn run clean",
+    "build": "rollup -c",
+    "clean": "rimraf es/ cjs/ umd/",
+    "lint:base": "eslint --ignore-path .gitignore",
+    "lint": "yarn run lint:base .",
+    "lint:fix": "yarn run lint:base --fix .",
+    "format:base":
+      "prettier --config './.prettierrc.yaml' --ignore-path './.gitignore' --write",
+    "format": "yarn run format:base './**/*.{js,json}'",
+    "format-fix": "yarn run format && yarn run lint:fix",
+    "precommit": "lint-staged",
+    "test": "NODE_ENV=test jest",
+    "prepublishOnly": "yarn run build"
+  },
+  "lint-staged": {
+    "*.js": ["yarn run format:base", "yarn run lint:base --fix", "git add"]
   },
   "engines": {
     "node": ">=4"
   },
-  "keywords": [
-    "ramda",
-    "validation",
-    "asserters"
-  ],
+  "keywords": ["ramda", "trace"],
   "devDependencies": {
-    "@types/jest": "^21.1.0",
-    "@types/node": "^8.0.31",
-    "gulp": "^3.9.1",
-    "gulp-sourcemaps": "^2.6.1",
-    "gulp-typescript": "^3.2.2",
+    "babel-eslint": "^8.0.3",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.13.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-import-resolver-babel-plugin-root-import": "^0.0.11",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.4.2",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
+    "install-peers": "^1.0.2",
     "jest": "^21.1.0",
-    "lint-staged": "^4.2.3",
-    "merge2": "^1.2.0",
-    "prettier": "^1.7.3",
-    "ts-jest": "^21.0.1",
-    "tslint": "^5.7.0",
-    "tslint-config-prettier": "^1.5.0",
-    "tslint-config-standard": "^7.0.0",
-    "tslint-consistent-codestyle": "^1.6.0",
-    "typescript": "^2.5.2"
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.52.1",
+    "rollup-plugin-babel": "^3.0.2"
+  },
+  "peerDependencies": {
+    "ramda": "^0.25.0"
   }
 }

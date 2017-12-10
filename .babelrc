@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["env", {
+      "debug": false,
+      "modules": "commonjs",
+      "targets": {
+        "node": "current"
+      },
+      "useBuiltIns": true,
+      "externalHelpers": true
+    }],
+  ]
+}
