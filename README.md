@@ -4,26 +4,33 @@
 # ramda-universal-trace
 Trace function that works fine both in browser and node
 
-**Signature**: String -> a -> a
-
 In browser it will use
-```ts
+```js
 console.log(message, subject)
 ```
 
 but in node:
-```ts
-const options = { showHidden: true, depth: 40 }
+```js
+const options = { showHidden: true, depth: 40, colors: true }
 console.log(message, util.inspect(subj, options))
 ```
 
 Original idea was drawn from [this gist](https://gist.github.com/jaysoo/7b1298bcc98ef9ac71e6dd0383a07dc3)
 
+## API
+```js
+traceMeta = R.curryN(4, (logger, modFn, message, obj) => { ... })
+traceMod = traceMeta(defaultLogger)
+trace = traceMod(R.identity)
+```
+
+check source for more
+
 ## Usage
 
-```ts
+```js
 import * as R from 'ramda'
-import trace from 'ramda-universal-trace'
+import { trace, traceMod } from 'ramda-universal-trace'
 
 const performComplexCalc = R.compose(
     trace('after'),

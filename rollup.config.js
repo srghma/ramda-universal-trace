@@ -21,10 +21,10 @@ const config = {
   external: id => /ramda/.test(id),
   plugins:  [
     babel({
-      babelrc:         false,
-      externalHelpers: true,
-      exclude:         'node_modules/**',
-      presets:         [
+      babelrc: false,
+      // externalHelpers: true,
+      exclude: 'node_modules/**',
+      presets: [
         [
           'env',
           {
@@ -33,7 +33,7 @@ const config = {
         ],
       ],
       plugins: [
-        'external-helpers',
+        // 'external-helpers',
         [
           'lodash',
           {
