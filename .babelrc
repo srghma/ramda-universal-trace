@@ -1,13 +1,9 @@
 {
   "presets": [
-    ["env", {
-      "debug": false,
-      "modules": "commonjs",
+    ["@babel/preset-env", {
       "targets": {
         "node": "current"
-      },
-      "useBuiltIns": true,
-      "externalHelpers": true
-    }],
+      }
+    }]
   ]
 }

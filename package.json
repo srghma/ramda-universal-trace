@@ -11,7 +11,11 @@
   "bugs": {
     "url": "https://github.com/BjornMelgaard/ramda-universal-trace/issues"
   },
-  "files": ["es", "src", "umd"],
+  "files": [
+    "es",
+    "src",
+    "umd"
+  ],
   "main": "cjs/index.js",
   "browser": "es/index.js",
   "module": "es/index.js",
@@ -23,8 +27,7 @@
     "lint:base": "eslint --ignore-path .gitignore",
     "lint": "yarn run lint:base .",
     "lint:fix": "yarn run lint:base --fix .",
-    "format:base":
-      "prettier --config './.prettierrc.yaml' --ignore-path './.gitignore' --write",
+    "format:base": "prettier --config './.prettierrc.yaml' --ignore-path './.gitignore' --write",
     "format": "yarn run format:base './**/*.{js,json}'",
     "format-fix": "yarn run format && yarn run lint:fix",
     "precommit": "lint-staged",
@@ -32,18 +35,27 @@
     "prepublishOnly": "yarn run build"
   },
   "lint-staged": {
-    "*.js": ["yarn run format:base", "yarn run lint:base --fix", "git add"]
+    "*.js": [
+      "yarn run format:base",
+      "yarn run lint:base --fix",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=4"
   },
-  "keywords": ["ramda", "trace"],
+  "keywords": [
+    "ramda",
+    "trace"
+  ],
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.34",
+    "@babel/core": "^7.0.0-beta.34",
+    "@babel/preset-env": "^7.0.0-beta.34",
     "babel-eslint": "^8.0.3",
-    "babel-jest": "^21.2.0",
+    "babel-jest": "^21.3.0-beta.13",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-lodash": "^3.3.2",
-    "babel-preset-env": "^1.6.1",
     "eslint": "^4.13.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-standard": "^10.2.1",
