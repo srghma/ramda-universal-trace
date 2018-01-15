@@ -11,11 +11,7 @@
   "bugs": {
     "url": "https://github.com/BjornMelgaard/ramda-universal-trace/issues"
   },
-  "files": [
-    "es",
-    "src",
-    "umd"
-  ],
+  "files": ["es", "src", "umd"],
   "main": "cjs/index.js",
   "browser": "es/index.js",
   "module": "es/index.js",
@@ -30,25 +26,19 @@
     "lint:base": "eslint --ignore-path .gitignore",
     "lint": "yarn run lint:base .",
     "lint:fix": "yarn run lint:base --fix .",
-    "format:base": "prettier --config './.prettierrc.yaml' --ignore-path './.gitignore' --write",
+    "format:base":
+      "prettier --config './.prettierrc.yaml' --ignore-path './.gitignore' --write",
     "format": "yarn run format:base './**/*.{js,json}'",
     "format-fix": "yarn run format && yarn run lint:fix",
     "test": "NODE_ENV=test jest"
   },
   "lint-staged": {
-    "*.js": [
-      "yarn run format:base",
-      "yarn run lint:base --fix",
-      "git add"
-    ]
+    "*.js": ["yarn run format:base", "yarn run lint:base --fix", "git add"]
   },
   "engines": {
     "node": ">=4"
   },
-  "keywords": [
-    "ramda",
-    "trace"
-  ],
+  "keywords": ["ramda", "trace"],
   "devDependencies": {
     "@team-griffin/install-self-peers": "^1.1.1",
     "babel-eslint": "^8.0.3",

@@ -9,7 +9,7 @@ export function isNode() {
 }
 
 export function makeInspect(options) {
-  return (function() {
+  return (() => {
     const util = require('util')
 
     function inspect(obj) {
@@ -21,26 +21,23 @@ export function makeInspect(options) {
 }
 
 export function wrapWithInspect(inspectOptions, log) {
-  const node = isNode()
+  const inspect = makeInspect(inspectOptions)
 
-  if (node) {
-    const inspect = makeInspect(inspectOptions)
-
-    return (message, obj) => {
-      log(message, inspect(obj))
-    }
+  return (message, obj) => {
+    log(message, inspect(obj))
   }
-  return log
 }
 
-export const defaultLogger = wrapWithInspect(
-  {
-    showHidden: true,
-    depth:      40,
-    colors:     true,
-  },
-  console.log,
-)
+export const defaultLogger = isNode()
+  ? wrapWithInspect(
+    {
+      showHidden: true,
+      depth:      40,
+      colors:     true,
+    },
+    console.log,
+  )
+  : console.log
 
 export const traceMeta = R.curryN(4, (logger, modFn, message, obj) => {
   logger(message, modFn(obj))
