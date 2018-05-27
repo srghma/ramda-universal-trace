@@ -42,7 +42,7 @@
   "devDependencies": {
     "@team-griffin/install-self-peers": "^1.1.1",
     "babel-eslint": "^8.0.3",
-    "babel-jest": "^22.0.0",
+    "babel-jest": "^23.0.1",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-lodash": "^3.3.2",
     "babel-preset-env": "^1.6.1",
