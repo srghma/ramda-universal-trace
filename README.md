@@ -36,7 +36,7 @@ const performComplexCalc = R.compose(
     trace('after'),
     R.subtract(__, 2),
     R.divide(__, 4),
-    trace('middle'),
+    traceMod(R.prop('show_whats_on_this_key'), 'middle'),
     R.multiply(10),
     R.add(10),
     trace('before')
