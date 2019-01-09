@@ -46,3 +46,5 @@ const performComplexCalc = R.compose(
 ## Installation
 `npm i ramda-universal-trace` or `yarn add ramda-universal-trace`
 
+# TODO
+- how good this package is optimized with prepack? make 2 versions of this script - one for browser and one for node
